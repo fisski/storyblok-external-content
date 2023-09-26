@@ -1,0 +1,20 @@
+.thumbnailview .MuiImageListItem-root:hover img {
+  filter: brightness(1.25);
+}
+
+.thumbnailview .MuiImageListItem-root.selected img {
+  filter: grayscale(1);
+  /* outline: 4px dashed var(--sb_dark_blue);
+  outline-offset: -4px; */
+}
+.thumbnailview .MuiImageListItem-root.selected:hover img {
+  filter: grayscale(1) brightness(1.25);
+}
+
+.thumbnailview .MuiImageListItem-root.selected .MuiImageListItemBar-root {
+  background: var(--sb_green); 
+}
+
+.thumbnailview .MuiImageListItem-root.selected .MuiImageListItemBar-root .MuiImageListItemBar-titleWrap {
+  color: var(--white);
+}

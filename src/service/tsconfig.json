@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "module": "Node16",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "outDir": "./dist"
+  }
+}

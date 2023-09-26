@@ -1,0 +1,8 @@
+ 
+{
+  "name": "@storyblok-external-content/root",
+  "workspaces": [
+    "src/service",
+    "src/plugin"
+  ]
+}
