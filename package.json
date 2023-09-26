@@ -1,8 +1,15 @@
- 
 {
   "name": "@storyblok-external-content/root",
   "workspaces": [
     "src/service",
     "src/plugin"
-  ]
+  ],
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^7.3.0"
+  },
+  "scripts": {
+    "publish:patch": "lerna version patch"
+  }
 }

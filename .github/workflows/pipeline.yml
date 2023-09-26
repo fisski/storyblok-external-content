@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
+    tags:
+      - "v*"
 
 jobs:
   test:
@@ -36,6 +38,8 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install dependencies
         run: npm ci
+      - name: Build sources
+        run: npm -w src/service run build
       - name: Publish package
         run: npm -w src/service publish
         env:
