@@ -28,11 +28,11 @@ export function Preview() {
         </ImageListItem>
       )}
       <Button
-        data-testid="select-video"
+        data-testid="select-content"
         color="primary"
         onClick={openModal}
       >
-        Select video
+        Select
       </Button>
     </Stack>
   );

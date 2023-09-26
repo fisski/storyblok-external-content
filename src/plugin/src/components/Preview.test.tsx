@@ -8,22 +8,22 @@ afterEach(() => {
   mockSelectedContent = null;
 });
 
-test("should render select video button", () => {
+test("should render select content button", () => {
   const { getByTestId } = render(<Preview />);
-  expect(getByTestId("select-video")).toBeInTheDocument();
+  expect(getByTestId("select-content")).toBeInTheDocument();
 });
 
 test("should open modal when clicked", async () => {
   const { getByTestId } = render(<Preview />);
-  const selectVideoButton = getByTestId("select-video");
-  fireEvent.click(selectVideoButton);
+  const selectContentButton = getByTestId("select-content");
+  fireEvent.click(selectContentButton);
 
   await waitFor(() => {
     expect(mockSetModalOpen).toHaveBeenCalledWith(true);
   });
 });
 
-test("should render selected video thumbnail", () => {
+test("should render selected content thumbnail", () => {
   mockSelectedContent = { id: 1, title: "title", thumbnailUrl: "thumbnailUrl" };
 
   const { getByTestId } = render(<Preview />);
@@ -34,7 +34,7 @@ test("should render selected video thumbnail", () => {
   );
 });
 
-test("should render selected video title", () => {
+test("should render selected content title", () => {
   mockSelectedContent = { id: 1, title: "title", thumbnailUrl: "thumbnailUrl" };
 
   const { getByTestId } = render(<Preview />);

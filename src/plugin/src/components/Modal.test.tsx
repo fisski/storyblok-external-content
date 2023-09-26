@@ -189,23 +189,23 @@ test("should treat duplicate clicks as accept selection", async () => {
   expect(mockSetModalOpen).toHaveBeenCalledWith(false);
 });
 
-test("should show loader while fetching videos", () => {
+test("should show loader while fetching content", () => {
   const { contentService } = createMockContentService();
   const { getByTestId } = render(<Modal contentService={contentService} />);
 
-  expect(getByTestId("video-loader")).toBeInTheDocument();
+  expect(getByTestId("content-loader")).toBeInTheDocument();
 });
 
-test("should show message when no videos are available", async () => {
+test("should show message when no contents are available", async () => {
   const { contentService, resolveGetContent } = createMockContentService();
   const { getByTestId } = render(<Modal contentService={contentService} />);
 
   await act(() => resolveGetContent([]));
 
-  expect(getByTestId("no-videos-message")).toBeInTheDocument();
+  expect(getByTestId("no-contents-message")).toBeInTheDocument();
 });
 
-test("should show message when no videos match filter", async () => {
+test("should show message when no content match filter", async () => {
   const contents = [{ id: 1, title: "mismatching content", thumbnailUrl: "" }];
 
   const { contentService, resolveGetContent } = createMockContentService();

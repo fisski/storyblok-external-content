@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { expect, vi } from "vitest";
 import { ThumbnailViewItem } from "./ThumbnailViewItem.js";
 
-test("should render video thumbnail", () => {
+test("should render content thumbnail", () => {
   const content = { id: 1, title: "title", thumbnailUrl: "thumbnailUrl" };
 
   const { getByTestId } = render(<ThumbnailViewItem content={content} />);
@@ -10,7 +10,7 @@ test("should render video thumbnail", () => {
   expect(getByTestId("thumbnail")).toHaveAttribute("src", content.thumbnailUrl);
 });
 
-test("should render video title", () => {
+test("should render content title", () => {
   const content = { id: 1, title: "title", thumbnailUrl: "thumbnailUrl" };
 
   const { getByTestId } = render(<ThumbnailViewItem content={content} />);

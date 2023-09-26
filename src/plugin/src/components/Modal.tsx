@@ -143,7 +143,7 @@ function ContentView({
   if (isLoading(contents)) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", mt: "3em" }}>
-        <CircularProgress data-testid="video-loader" />
+        <CircularProgress data-testid="content-loader" />
       </Box>
     );
   }
@@ -153,9 +153,9 @@ function ContentView({
       <Box sx={{ display: "flex", justifyContent: "center", mt: "3em" }}>
         <Alert
           severity="warning"
-          data-testid="no-videos-message"
+          data-testid="no-contents-message"
         >
-          No videos available
+          No contents available
         </Alert>
       </Box>
     );

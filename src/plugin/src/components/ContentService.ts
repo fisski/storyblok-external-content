@@ -12,7 +12,7 @@ export class ContentService implements IContentService {
     const response = await fetch(this.source);
     if (!response.ok) {
       throw new Error(
-        `Failed to fetch videos: ${response.status} - ${response.statusText}`,
+        `Failed to fetch contents: ${response.status} - ${response.statusText}`,
       );
     }
 
