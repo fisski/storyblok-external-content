@@ -9,10 +9,16 @@ export class Server {
   private fastify: FastifyInstance | null = null;
   private contentProvider: IContentProvider;
   private port: number;
+  private host: string;
 
-  constructor(contentProvider: IContentProvider, port: number) {
+  constructor(
+    contentProvider: IContentProvider,
+    port: number,
+    host: string = "localhost",
+  ) {
     this.contentProvider = contentProvider;
     this.port = port;
+    this.host = host;
   }
 
   async start(): Promise<void> {
@@ -27,7 +33,7 @@ export class Server {
 
     this.registerGetContentRoute(this.fastify);
 
-    await this.fastify.listen({ port: this.port });
+    await this.fastify.listen({ port: this.port, host: this.host });
   }
 
   async close(): Promise<void> {
