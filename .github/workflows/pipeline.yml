@@ -31,6 +31,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.1.0
+        with:
+          fetch-depth: 2
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.8.1
         with:
@@ -40,7 +42,16 @@ jobs:
         run: npm ci
       - name: Build sources
         run: npm -w src/service run build
+      - name: Check for changes in service directory
+        id: check-changes
+        run: |
+          if git diff --quiet HEAD^ HEAD -- ./src/service/; then
+            echo "::set-output name=changed::false"
+          else
+            echo "::set-output name=changed::true"
+          fi
       - name: Publish package
+        if: steps.check-changes.outputs.changed == 'true'
         run: npm -w src/service publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
