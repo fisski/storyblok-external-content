@@ -1,8 +1,8 @@
 {
   "name": "@storyblok-external-content/root",
   "workspaces": [
-    "src/service",
-    "src/plugin"
+    "packages/service",
+    "packages/plugin"
   ],
   "version": "1.0.0",
   "dependencies": {},

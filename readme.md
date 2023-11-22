@@ -15,7 +15,7 @@ This particular field plugin is designed to interact with an external content pl
 
 ### Service
 
-To implement authentication and format content appropriately, you're required to create a service. Use the provided [Service](./src/service/) as a foundational template for this purpose.
+To implement authentication and format content appropriately, you're required to create a service. Use the provided [Service](./packages/service/) as a foundational template for this purpose.
 
 To publish service package use `npm run publish:patch`
 
@@ -23,7 +23,7 @@ To publish service package use `npm run publish:patch`
 
 For a brief overview of the necessary steps, refer to the list below. For comprehensive guidelines, please consult the [Plugin Deployment documentation.](./doc/plugin-deployment.md)
 
-1. Go to plugin directory `cd src/plugin`
+1. Go to plugin directory `cd packages/plugin`
 2. Build plugin with `npm run build`
 3. Deploy plugin to Storyblok with `npm run deploy`
 4. Publish latest version from Storyblok UI
