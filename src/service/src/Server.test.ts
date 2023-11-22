@@ -75,6 +75,27 @@ describe("Server", () => {
     expect(response.body).to.deep.equal(providedContent);
   });
 
+  it("should respond with additional properties", async () => {
+    const providedContent = [
+      {
+        id: 1,
+        title: "title1",
+        thumbnailUrl: "https://example.com/img1.jpg",
+        extraField: "extra value",
+      },
+    ];
+
+    const contentProvider = createMockContentProvider(providedContent);
+    const server = new Server(contentProvider, 0);
+
+    await server.start();
+    after(() => server.close());
+
+    const response = await supertest(server.getHttpServer()).get("/content");
+
+    expect(response.body).to.deep.equal(providedContent);
+  });
+
   function createMockContentProvider(
     providedContent: ContentItem[] = [],
   ): IContentProvider {
